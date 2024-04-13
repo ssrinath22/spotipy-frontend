@@ -77,7 +77,7 @@ const getPlaylists = async (setPlaylists: (arg0: [Playlist]) => void) => {
 };
 
 
-const runAnalysis = async (playlistId: string) => {
+const runAnalysis = async (playlistId: string, setHi: (arg0: string) => void, setLo: (arg0: string) => void) => {
     try {
         const response = await fetch('http://localhost:8000/api/recieve_analysis', {
             method: 'POST',
@@ -85,12 +85,14 @@ const runAnalysis = async (playlistId: string) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ playlist_id: playlistId }),
-        });
-        if (response.ok) {
-            console.log('Analysis run successfully');
-        } else {
-            console.error('Analysis Failed');
-        }
+        })
+        .then(response => response.json())
+        .then(data => {
+            setHi(data.hi)
+            setLo(data.lo)
+            return 200
+        })
+        .catch(error => { return new Error('Error making playlists:') });
     } catch (error) {
         console.error('Error running analysis:', error);
     }

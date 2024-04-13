@@ -12,13 +12,13 @@ type SinglePlaylistProps = {
     active: number
     setActive: (arg0: number) => void
     index: number
-    plist: Playlist;
+    plist: Playlist
+    setDone: (arg0: boolean) => void
+    setInfoActive: (arg0: boolean) => void
+    setActivePid: (arg0:string) => void
 }
 
-const SinglePlaylist: React.FC<SinglePlaylistProps> = ({ index, plist, active, setActive }) => {
-    const [isHovered, setIsHovered] = useState<boolean>(false)
-    const [infoActive, setInfoActive] = useState<boolean>(false)
-
+const SinglePlaylist: React.FC<SinglePlaylistProps> = ({ index, plist, active, setActive, setInfoActive,setActivePid}) => {
     const shadowColor = '#97E7E1'
     const cardColor = '#7AA2E3'
     const textColor = '#F8F6E3'
@@ -33,12 +33,12 @@ const SinglePlaylist: React.FC<SinglePlaylistProps> = ({ index, plist, active, s
 
     return (
         <div
-            // onClick={() => setInfoActive(!infoActive)}
-            onMouseEnter={() => setActive(index)}
-            onMouseLeave={() => {
-                setActive(-1) 
-                setInfoActive(false)
+            onClick={() => {
+                setActivePid(plist.id)
+                setInfoActive(true)
             }}
+            onMouseEnter={() => setActive(index)}
+            onMouseLeave={() => setActive(-1)}
             style={{
                 cursor:'pointer',
                 display: 'flex',
@@ -48,7 +48,6 @@ const SinglePlaylist: React.FC<SinglePlaylistProps> = ({ index, plist, active, s
                 margin: '10px',  // Uniform margin around each item
                 transition: 'transform 0.3s, box-shadow 0.3s',
                 transform: (active === index) ? 'scale(1.05)' : 'scale(1)',
-                boxShadow: (active === index) ? `0px 0px 30px ${shadowColor}` : 'none',
                 borderRadius: '10px',
                 overflow: 'hidden',  // Ensures the content does not overflow
             }}
@@ -80,10 +79,9 @@ const SinglePlaylist: React.FC<SinglePlaylistProps> = ({ index, plist, active, s
                     }}
                 >
                     {plist.name}
-                    <UsePlaylist plist={plist} isActive={active === index}/>
+                    {/* <UsePlaylist plist={plist} isActive={active === index} setDone={setDone}/> */}
                 </span>
             </div>
-
         </div>
     )
 }

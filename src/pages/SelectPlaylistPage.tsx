@@ -1,3 +1,4 @@
+import { useState } from "react"
 import PlaylistContainer from "../components/PlaylistContainer"
 
 type Playlist = {
@@ -13,6 +14,8 @@ type SelectPlaylistPageProps = {
 }
 
 const SelectPlaylistPage: React.FC<SelectPlaylistPageProps> = ({playlists, setPlaylists}) => {
+    const [done, setDone] = useState<boolean>(false)
+    /** pass in a setter so they can set playlist links in here */
     return (
         <div
             style={{
@@ -23,7 +26,10 @@ const SelectPlaylistPage: React.FC<SelectPlaylistPageProps> = ({playlists, setPl
 
             }}
         >
-            <PlaylistContainer plists={playlists} setPlists={setPlaylists}/>
+            <PlaylistContainer plists={playlists} setPlists={setPlaylists} setDone={setDone}/>
+
+            {/** Navigate through*/}
+
         </div>
     )
 }
