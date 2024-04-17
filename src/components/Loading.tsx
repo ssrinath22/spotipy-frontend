@@ -13,6 +13,7 @@ const Loading: React.FC<LoadingProps> = ({ ready, loadingText = '' }) => {
                 height: '100vh',
                 textAlign: 'center',
                 transition: 'all .5s',
+                backgroundColor: '#F8F6E3'
             }}
         >
             {!ready ?
@@ -29,12 +30,12 @@ const Loading: React.FC<LoadingProps> = ({ ready, loadingText = '' }) => {
 
             <div
                 style={{
-                    color:'#1679AB',
+                    color:'#7AA2E3',
                     opacity: 1,
                     position: 'absolute',
-                    width: !ready ? '30%' : '0',
-                    top: !ready ? '20%' : 0,
-                    left: !ready ? '35%' : 0,
+                    width: !ready ? '10%' : '0',
+                    top: !ready ? '30%' : 0,
+                    left: !ready ? '45%' : 0,
                     transition: 'all .2s',
                 }}
             >

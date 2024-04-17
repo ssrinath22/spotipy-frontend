@@ -81,7 +81,7 @@ const PlaylistInfo: React.FC<PlaylistInfoProps> = ({ id, isActive, setIsActive }
                                 cursor:'pointer',
                                 position: 'absolute',
                                 top: '1%',
-                                right: '2%',
+                                left: '2%',
                                 zIndex: 10
                             }}
                         >
@@ -102,7 +102,7 @@ const PlaylistInfo: React.FC<PlaylistInfoProps> = ({ id, isActive, setIsActive }
                                 cursor:'pointer',
                                 position: 'absolute',
                                 top: '1%',
-                                right: '7%',
+                                right: '2%',
 
                             }}
                         >
@@ -186,7 +186,7 @@ const PlaylistInfo: React.FC<PlaylistInfoProps> = ({ id, isActive, setIsActive }
                                 cursor:'pointer',
                                 position: 'absolute',
                                 top: '1%',
-                                right: '.5%',
+                                left: '2%',
                                 zIndex: 10
                             }}
                         >

@@ -33,8 +33,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<LandingPage mediaSize={matches} />} />
                 <Route path="/auth" element={<AuthHandler currToken={token} setAuth={setToken} />} />
-                <Route path="/home" element={<UserHomePage accessToken={token} />} />
-                <Route path="/loading" element={<LoadingPage plists={playlists} setPlists={setPlaylists}/> } />
+                {/* <Route path="/home" element={<UserHomePage accessToken={token} />} /> */}
+                <Route path="/loading" element={<LoadingPage plists={playlists} setPlists={setPlaylists} accessToken={token}/> } />
                 <Route path="/playlists" element={<SelectPlaylistPage playlists={playlists} setPlaylists={setPlaylists}/>} />
             </Routes>
         </Router>

@@ -28,7 +28,7 @@ const AuthHandler: React.FC<AuthHandlerProps> = ({ currToken, setAuth }) => {
             navigate('/');
         } else {
             console.log(currToken)
-            navigate('/home');
+            navigate('/loading');
         }
     }, [navigate]);
 
